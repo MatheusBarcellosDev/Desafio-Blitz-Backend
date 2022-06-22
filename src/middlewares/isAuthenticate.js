@@ -1,3 +1,5 @@
+const { verify } = require("jsonwebtoken");
+
 const isAuthenticate = (req, res, next) => {
   const authToken = req.headers.authorization;
 
@@ -10,6 +12,8 @@ const isAuthenticate = (req, res, next) => {
   try {
     const { sub } = verify(token, process.env.JWT_SECRET);
 
+    console.log(sub);
+
     req.user_id = sub.id;
 
     return next();
@@ -17,3 +21,5 @@ const isAuthenticate = (req, res, next) => {
     return res.status(401).end();
   }
 };
+
+module.exports = { isAuthenticate };
