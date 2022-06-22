@@ -1,9 +1,13 @@
 const { User } = require("../../models");
 
 const listUserService = async () => {
-  const users = await User.findAll();
+  try {
+    const users = await User.findAll();
 
-  return users;
+    return users;
+  } catch (error) {
+    return { error: "Error to list users" };
+  }
 };
 
 module.exports = { listUserService };
