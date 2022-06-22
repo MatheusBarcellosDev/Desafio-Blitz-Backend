@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+const User = (sequelize, DataTypes) => {
   const User = sequelize.define(
     "User",
     {
@@ -9,9 +9,18 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       tableName: "Users",
-      timestamp: true,
+      timestamps: false,
     }
   );
 
+  User.associate = (models) => {
+    User.hasMany(models.Task, {
+      foreignKey: "userId",
+      as: "tasks",
+    });
+  };
+
   return User;
 };
+
+module.exports = User;

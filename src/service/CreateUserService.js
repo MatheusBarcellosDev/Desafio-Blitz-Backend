@@ -1,13 +1,15 @@
-const User = require("../models/user");
+const { User } = require("../../models");
 
-const createUser = async (name, email, password) => {
-  const emailExists = await User.findOne({ email });
+const createUserService = async (name, email, password) => {
+  const user = await User.findOne({ where: { email } });
 
-  if (emailExists) return { error: "Email already exists" };
+  console.log(user);
+
+  /*  if (emailExists) return { error: "Email already exists" };
 
   const user = await User.create({ name, email, password });
 
-  return user;
+  return user; */
 };
 
-module.exports = createUser;
+module.exports = { createUserService };
