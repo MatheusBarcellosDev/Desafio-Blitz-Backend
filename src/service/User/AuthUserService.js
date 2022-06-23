@@ -1,19 +1,15 @@
-const { User } = require("../../models");
+const { User } = require("../../../models");
 const { compare } = require("bcryptjs");
 const { sign } = require("jsonwebtoken");
 
 const authUserService = async (email, password) => {
   const user = await User.findOne({ where: { email } });
 
-  console.log(user.id);
-
   if (!user) {
     throw new Error("User/password invalid");
   }
 
   const passwordMatch = await compare(password, user.password);
-
-  console.log(passwordMatch);
 
   if (!passwordMatch) {
     throw new Error("User/password invalid");

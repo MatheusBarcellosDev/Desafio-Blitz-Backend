@@ -12,9 +12,7 @@ const isAuthenticate = (req, res, next) => {
   try {
     const { sub } = verify(token, process.env.JWT_SECRET);
 
-    console.log(sub);
-
-    req.user_id = sub.id;
+    req.user_id = sub;
 
     return next();
   } catch (err) {

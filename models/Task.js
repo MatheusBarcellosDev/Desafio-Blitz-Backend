@@ -1,4 +1,4 @@
-module.exports = (sequelize, DataTypes) => {
+const Task = (sequelize, DataTypes) => {
   const Task = sequelize.define(
     "Task",
     {
@@ -8,12 +8,11 @@ module.exports = (sequelize, DataTypes) => {
       pending: DataTypes.BOOLEAN,
       inProgress: DataTypes.BOOLEAN,
       ready: DataTypes.BOOLEAN,
-      published: DataTypes.DATE,
-      updated: DataTypes.DATE,
     },
     {
       tableName: "Tasks",
       timestamp: true,
+      underscore: true,
     }
   );
 
@@ -26,3 +25,5 @@ module.exports = (sequelize, DataTypes) => {
 
   return Task;
 };
+
+module.exports = Task;

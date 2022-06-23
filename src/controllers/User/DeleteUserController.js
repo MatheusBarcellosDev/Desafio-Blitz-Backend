@@ -1,4 +1,4 @@
-const { DeleteUserService } = require("../service/DeleteUserService");
+const { DeleteUserService } = require("../../service/User/DeleteUserService");
 
 const DeleteUserController = (req, res) => {
   const { id } = req.params;
