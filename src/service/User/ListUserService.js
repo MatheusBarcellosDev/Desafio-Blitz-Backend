@@ -6,7 +6,7 @@ const listUserService = async () => {
 
     return users;
   } catch (error) {
-    return { error: "Error to list users" };
+    throw new Error(error);
   }
 };
 
