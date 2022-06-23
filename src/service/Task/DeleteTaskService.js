@@ -1,12 +1,14 @@
 const { Task } = require("../../../models");
 
-const DeleteTaskService = (id) => {
+const DeleteTaskService = async (id) => {
   try {
-    const task = Task.destroy({
+    const task = await Task.destroy({
       where: {
         id,
       },
     });
+
+    return task;
   } catch (err) {
     throw new Error(err);
   }
