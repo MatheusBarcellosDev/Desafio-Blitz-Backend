@@ -24,6 +24,10 @@ const {
   ListTaskController,
 } = require("../controllers/Task/ListTaskController");
 
+const {
+  UpdateTaskController,
+} = require("../controllers/Task/UpdateTaskController");
+
 const { validateUserCreate } = require("../middlewares/userValidate");
 const { isAuthenticate } = require("../middlewares/isAuthenticate");
 const { validateTaskCreate } = require("../middlewares/taskValidate");
@@ -39,6 +43,7 @@ routes.delete("/users/:id", isAuthenticate, DeleteUserController);
 //-- Task routes --//
 routes.post("/task", isAuthenticate, validateTaskCreate, createTaskController);
 routes.get("/task", isAuthenticate, ListTaskController);
+routes.put("/task/:id", isAuthenticate, UpdateTaskController);
 routes.delete("/task/:id", isAuthenticate, DeleteTaskController);
 
 module.exports = routes;
