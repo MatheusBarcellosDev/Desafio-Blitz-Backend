@@ -14,6 +14,8 @@ const CreateTaskService = async (
       pending,
       inProgress,
       ready,
+      published: Date.now(),
+      updated: Date.now(),
     });
 
     return task;

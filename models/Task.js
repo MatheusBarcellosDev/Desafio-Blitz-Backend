@@ -8,6 +8,8 @@ const Task = (sequelize, DataTypes) => {
       pending: DataTypes.BOOLEAN,
       inProgress: DataTypes.BOOLEAN,
       ready: DataTypes.BOOLEAN,
+      published: DataTypes.DATE,
+      updated: DataTypes.DATE,
     },
     {
       tableName: "Tasks",

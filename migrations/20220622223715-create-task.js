@@ -31,6 +31,12 @@ module.exports = {
       ready: {
         type: Sequelize.BOOLEAN,
       },
+      published: {
+        type: Sequelize.DATE,
+      },
+      updated: {
+        type: Sequelize.DATE,
+      },
     });
   },
 
