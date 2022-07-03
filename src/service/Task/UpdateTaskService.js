@@ -1,22 +1,13 @@
 const { Task } = require("../../../models");
 
-const UpdateTaskService = async (pending, inProgress, ready, id) => {
-  const newTask = {
-    pending,
-    inProgress,
-    ready,
-  };
-
+const UpdateTaskService = async (task) => {
   try {
-    const task = await Task.update(newTask, {
+    const taskUpdate = await Task.update(task, {
       where: {
-        id,
+        id: task.id,
       },
     });
-
-    console.log(task);
-
-    return newTask;
+    return taskUpdate;
   } catch (err) {
     throw new Error(err.message);
   }
