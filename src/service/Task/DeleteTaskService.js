@@ -1,4 +1,4 @@
-const { Task } = require("../../../models");
+const { Task } = require("../../database/models");
 
 const DeleteTaskService = async (id) => {
   try {

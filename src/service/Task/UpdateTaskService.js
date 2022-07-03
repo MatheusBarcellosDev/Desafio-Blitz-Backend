@@ -1,4 +1,4 @@
-const { Task } = require("../../../models");
+const { Task } = require("../../database/models");
 
 const UpdateTaskService = async (task) => {
   try {
