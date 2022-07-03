@@ -13,7 +13,7 @@ const Task = (sequelize, DataTypes) => {
     },
     {
       tableName: "Tasks",
-      timestamp: true,
+      timestamps: false,
       underscore: true,
     }
   );
