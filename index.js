@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 require("express-async-errors");
-const routes = require("./routes/routes");
+const routes = require("./src/routes/routes");
 const cors = require("cors");
 
 const app = express();
