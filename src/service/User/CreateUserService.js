@@ -1,4 +1,4 @@
-const { User } = require("../../../models");
+const { User } = require("../../database/models");
 const { hash } = require("bcryptjs");
 
 const createUserService = async (name, email, password) => {
