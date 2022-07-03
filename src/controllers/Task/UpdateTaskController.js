@@ -1,13 +1,9 @@
 const { UpdateTaskService } = require("../../service/Task/UpdateTaskService");
 
 const UpdateTaskController = async (req, res) => {
-  const { pending, inProgress, ready } = req.body;
+  const taskUpdate = await UpdateTaskService(req.body);
 
-  const { id } = req.params;
-
-  const task = await UpdateTaskService(pending, inProgress, ready, id);
-
-  res.status(200).json({ task });
+  res.status(200).json({ taskUpdate });
 };
 
 module.exports = { UpdateTaskController };
